@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:DadJokes.Models.Service"
+             x:Class="DadJokes.JokeView" Title="Dad Joke" IconImageSource="joker.png">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Padding="15" Text="{Binding Joke.joke, StringFormat='&quot;{0}&quot;'}"  VerticalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand" MaxLines="4" FontFamily="OpenSans" FontSize="Large" />
+
+            <Frame Grid.Row="1"
+                CornerRadius="45" BackgroundColor="#1fb141" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Image Source="jokerwhite.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NewJokeCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
